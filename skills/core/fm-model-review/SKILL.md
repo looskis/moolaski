@@ -46,6 +46,7 @@ A short structure table, the flow of calculation with cell references, the base-
 ## Common mistakes
 
 - Judging formulas one at a time and missing that two sheets define "equity" (or "IRR", or "total cost") differently.
-- Reporting "check cells say OK" as evidence. Read what each check compares: many compare a % to a $, or test the wrong item.
+- Reporting "check cells say OK" as evidence. Read what each check compares: many compare a % to a $, test the wrong item, point at the wrong sheet, or wrap the test in `IFERROR(…,"OK")` so an error reads as a pass.
+- Reviewing a blank template as shipped. Zero inputs and `IFERROR(…,0)` make every formula return 0, so nothing looks wrong. Type a plausible case into the inputs before judging it.
 - Treating a summary table's differing formulas as inconsistency. Only time-series rows should be uniform.
 - Stopping at the first sheet's errors without reconciling totals across sheets.

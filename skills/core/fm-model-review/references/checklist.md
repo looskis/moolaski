@@ -17,6 +17,8 @@ Work through each group, and note cell addresses for anything found.
 - [ ] Inputs that are really solved outputs: fractional prices, or values that exactly hit a target.
 - [ ] One driver per event. Rent start and opex start should not be separate inputs that can disagree.
 - [ ] Switches accept only the values they implement. Look for a "method" column where only one option computes.
+- [ ] A driver's historical back-solve uses the same base as its forecast formula (opening vs closing vs average balance, revenue vs COGS).
+- [ ] Blank templates: fill in a test case before reviewing; zero inputs hide almost every error.
 
 ## Formulas
 
@@ -46,5 +48,7 @@ Work through each group, and note cell addresses for anything found.
 
 ## Checks and labels
 
-- [ ] Each check compares like with like ($ to $), and tests the item it names.
+- [ ] Each check compares like with like ($ to $), and tests the item it names, on the sheet it names.
+- [ ] No check turns an error into a pass (`IFERROR(…,"OK")`).
+- [ ] Historical statements are linked, not typed: historical cash flow lines and corkscrew openings point at their sources, or the checks pass by construction.
 - [ ] Labels match the math. "Margin" that is really ROE, "annualized" that is really simple ÷ years, a sheet titled monthly that shows annual.
