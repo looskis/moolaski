@@ -35,10 +35,14 @@ _No skills yet._
 
 LBO, merger, comps, DCF.
 
-_No skills yet._
+| Skill | Use when |
+|---|---|
+| [ib-dcf](skills/investment-banking/ib-dcf/SKILL.md) | Builds a discounted cash flow valuation in Excel on top of a forecast — unlevered free cash flow, WACC from CAPM, terminal value by perpetuity growth and by exit multiple with each cross-checked against the other, mid-year discounting, the enterprise-to-equity bridge, value per share, and live sensitivity grids. Use when the user asks for a "DCF", "unlevered free cash flow", "FCFF", "WACC", "terminal value", "intrinsic value", "what's this company worth", "EV to equity bridge", or a football-field input. Not for building the underlying forecast (use cf-three-statement) and not for LBO returns. |
 
 ## Corporate finance (`cf-*`)
 
 Three-statement models, budgeting, forecasting.
 
-_No skills yet._
+| Skill | Use when |
+|---|---|
+| [cf-three-statement](skills/corporate-finance/cf-three-statement/SKILL.md) | Builds a driver-based three-statement operating model in Excel — income statement, balance sheet and cash flow statement that tie every period — with working capital on days, a PP&E and depreciation schedule, debt corkscrews with a revolver that plugs cash shortfalls, and interest handled without circularity (or with it, deliberately). Use when the user asks for a "3-statement model", "operating model", "financial forecast", "budget model", "integrated model", "revolver", "debt schedule", "cash sweep", or a balance sheet that won't balance. Not for valuation on its own (use ib-dcf) or for property-level cash flow models. |

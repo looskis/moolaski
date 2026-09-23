@@ -21,6 +21,7 @@ Every model built with these skills follows the same conventions, so any model c
 - One source per number: a detailed budget or backup table must feed the total the model uses.
 - Derive each event from one chain of inputs, so two inputs can never describe the same date.
 - A switch accepts only the values it implements, and a check flags anything else.
+- Defined names are case-insensitive: `Rev_0` and `REV_0` are one name, and the later definition silently wins.
 - Solved values (goal seek, targets) are never pasted over inputs.
 
 ## Formatting

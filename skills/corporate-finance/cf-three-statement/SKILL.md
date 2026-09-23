@@ -1,0 +1,59 @@
+---
+name: cf-three-statement
+description: Builds a driver-based three-statement operating model in Excel — income statement, balance sheet and cash flow statement that tie every period — with working capital on days, a PP&E and depreciation schedule, debt corkscrews with a revolver that plugs cash shortfalls, and interest handled without circularity (or with it, deliberately). Use when the user asks for a "3-statement model", "operating model", "financial forecast", "budget model", "integrated model", "revolver", "debt schedule", "cash sweep", or a balance sheet that won't balance. Not for valuation on its own (use ib-dcf) or for property-level cash flow models.
+---
+
+# Three-statement model
+
+Forecasts a company from operating drivers and produces three statements that agree with each other. It answers how much cash the business throws off, when it needs to borrow, and what its balance sheet looks like along the way. It is also the base a DCF, an LBO or a credit analysis sits on.
+
+Two things make this harder than a single cash-flow model, and they're the whole point: **the balance sheet has to balance every period**, and **interest depends on debt balances that depend on the cash flow that interest affects**.
+
+## Before you build
+
+- Gather: the last historical year's revenue and balance sheet (cash, receivables, inventory, PP&E, goodwill, payables, accruals, debt, share capital), and the forecast horizon.
+- Gather drivers, per year: revenue growth, COGS and SG&A as % of revenue, D&A, capex, DSO / DIO / DPO days, accruals, tax rate, dividend payout.
+- Gather debt terms: opening balances, rates, amortization, a revolver commitment, and the minimum cash balance.
+- Follow `fm-model-conventions` and `fm-time-series`. Balances use `fm-corkscrew-balances`.
+
+## Structure
+
+`Inputs` (scalars) → `Timing` (year index, flags) → `Drivers` (per-year assumptions, blue) → `IS` → `WC` (working capital and PP&E) → `Debt` → `BS` → `CFS` → `Checks`.
+
+Year 0 is the last historical year; the forecast runs 1…N. Keep drivers on their own sheet as input rows across the years, flat by default, so any single year can be overridden without breaking the row.
+
+## Build steps
+
+1. **Income statement**: revenue = prior × (1 + growth) in forecast years, the historical input in year 0. COGS and SG&A as % of revenue; EBITDA; D&A from the PP&E schedule; EBIT; interest from the Debt sheet; tax = rate × max(0, EBT); net income; dividends = payout × net income.
+2. **Working capital** on days: receivables from revenue, inventory and payables from COGS, accruals from SG&A. Net working capital and its change feed both the cash flow statement and any DCF. Compute year 0 from the same days, so the opening balance sheet is consistent with the drivers.
+3. **PP&E**: opening + capex − depreciation = closing, with year 0 set to the historical input.
+4. **Debt and cash** — the part to get right, see [references/circularity.md](references/circularity.md):
+   - Term loan corkscrew with scheduled amortization and an optional cash sweep.
+   - Cash flow before the revolver = net income + D&A − ΔNWC − capex + debt movements − dividends.
+   - Revolver draw = shortfall below the minimum cash balance; repayment sweeps cash above it.
+   - **Charge interest on opening balances.** The model then has no circular reference at all, and every result is reproducible. Offer average balances as a switch for those who want it, and say plainly that it needs iterative calculation on.
+5. **Balance sheet**: assets (cash, receivables, inventory, net PP&E, goodwill) and liabilities and equity (payables, accruals, revolver, term loan, share capital, retained earnings). Retained earnings roll forward: opening + net income − dividends. Set year 0 retained earnings as the plug that balances the opening balance sheet, so every later year is a genuine test.
+6. **Cash flow statement**: operating, investing, financing, then the change in cash. Its closing cash must equal the balance sheet's cash line — that equality is the model's main check, not a formality.
+
+## Checks
+
+- Assets = liabilities + equity in every year. Report the sum of absolute differences, so no year can hide.
+- Cash flow statement closing cash = balance sheet cash.
+- Retained earnings roll forward exactly.
+- Revolver and term loan never negative; cash never below its minimum.
+- Tax rates and ratios within sane bounds.
+- If average-balance interest is on, a warning that iterative calculation is required.
+
+## Common mistakes
+
+- **Plugging the balance sheet.** If a line is "whatever makes it balance", the model can no longer tell you when it's wrong. Only year-0 retained earnings may be a plug.
+- Interest on closing or average balances without realising it creates circularity, then fighting the warning with manual iteration and stale values.
+- A revolver that draws but never repays, or that ignores the minimum cash balance.
+- Depreciation as a % of revenue while PP&E also rolls forward, with the two never reconciled. Pick one and make the schedule authoritative.
+- Working capital forecast as a % of revenue for some lines and days for others, so the cash conversion cycle is unreadable.
+- Dividends or buybacks that don't reduce retained earnings and cash by the same amount.
+- Excel defined names are **case-insensitive**: `Rev_0` and `REV_0` are one name, and the second definition silently wins.
+
+## References
+
+- [references/circularity.md](references/circularity.md) — where circularity comes from, the three ways to handle it, and how to test that a model resolved rather than got stuck
