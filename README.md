@@ -24,13 +24,25 @@ Works with Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and the other 
 
 > Our sponsor sent this model. What's wrong with it?
 
+## See it work
+
+From a fresh install, asked the rental question above, unedited:
+
+> **No — not on these numbers. It loses money monthly and returns ~4% a year.**
+>
+> The going-in cap rate is 5.2% and the mortgage costs 7.25%. Borrowing at 7.25% to buy a 5.2% yield is negative leverage — the debt makes the deal *worse*, not better. […] You'd need **$2,958 rent today** (+23%) just to break even on cash flow. […] Strip out appreciation and the IRR is **−4.3%**.
+>
+> **`rental-320k.xlsx`** — 8 sheets, live formulas, 0 failing checks, 6 warnings raised (all of them about the deal, not the model).
+
+Then come the inputs that move it, the break-evens, and the assumptions it made for you to confirm.
+
 ## What comes back
 
 **The answer first.** The number, the two or three inputs that move it most, the break-even where the conclusion flips, and the assumptions it made for you to confirm.
 
 **A workbook you can hand to anyone.** Inputs in blue and formulas in black, one formula per row across every period, and no numbers buried inside formulas. Change an input and everything downstream follows, so the next question is a recalculation, not a rebuild.
 
-**Proof that it ties.** A `Checks` sheet tests the model against itself: the balance sheet balances, sources equal uses, loans pay off, partner cash flows sum to the deal. Every check rolls up to one flag on the cover, and the analyst doesn't hand over a model whose checks fail.
+**Proof that it ties.** A `Checks` sheet tests the model against itself: the balance sheet balances, sources equal uses, loans pay off, partner cash flows sum to the deal. Every check rolls up to one flag on the cover, and the analyst doesn't hand over a model whose checks fail. It recalculates and audits the workbook itself, even with no spreadsheet app installed, then ties the headline number out by a second route.
 
 ## What it covers today
 
@@ -46,3 +58,5 @@ Coming next: LBOs, trading comps, project finance, multifamily acquisitions and 
 ## License
 
 [MIT](LICENSE). Contributing: see [CLAUDE.md](CLAUDE.md).
+
+moolaski builds and explains models. It isn't investment advice: check the assumptions it lists before you rely on a number.
