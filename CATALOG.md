@@ -37,7 +37,7 @@ LBO, merger, comps, DCF.
 
 | Skill | Use when |
 |---|---|
-| [ib-dcf](skills/investment-banking/ib-dcf/SKILL.md) | Builds a discounted cash flow valuation in Excel on top of a forecast — unlevered free cash flow, WACC from CAPM, terminal value by perpetuity growth and by exit multiple with each cross-checked against the other, mid-year discounting, the enterprise-to-equity bridge, value per share, and live sensitivity grids. Use when the user asks for a "DCF", "unlevered free cash flow", "FCFF", "WACC", "terminal value", "intrinsic value", "what's this company worth", "EV to equity bridge", or a football-field input. Not for building the underlying forecast (use cf-three-statement) and not for LBO returns. |
+| [ib-dcf](skills/investment-banking/ib-dcf/SKILL.md) | Builds a discounted cash flow valuation in Excel on top of a forecast — unlevered free cash flow, WACC from CAPM, terminal value by perpetuity growth and by exit multiple with each cross-checked against the other, discounting from a stated valuation date with a stub period, the enterprise-to-equity bridge, value per share, the upside and implied IRR against the market price, and live sensitivity grids. Use when the user asks for a "DCF", "unlevered free cash flow", "FCFF", "WACC", "terminal value", "intrinsic value", "what's this company worth", "EV to equity bridge", or a football-field input. Not for building the underlying forecast (use cf-three-statement) and not for LBO returns. |
 
 ## Corporate finance (`cf-*`)
 
