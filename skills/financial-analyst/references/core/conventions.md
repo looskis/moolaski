@@ -1,11 +1,6 @@
----
-name: fm-model-conventions
-description: House conventions for building any financial model in Excel — sheet order, input/calc/output separation, color coding, sign convention, timing flags, and error checks. Use before building or reviewing any financial model (real estate, project finance, LBO, DCF, three-statement) so the result is consistent and auditable.
----
-
 # Financial model conventions
 
-Every model built with these skills follows the same conventions, so any model can be read, checked, and extended the same way. Domain skills assume these and only describe what differs.
+Every model follows the same conventions, so any model can be read, checked, and extended the same way. The model guides assume these and only describe what differs.
 
 ## Layout
 
@@ -40,17 +35,17 @@ Cash inflows positive, outflows negative, applied consistently; label the conven
 
 ## Timing
 
-See `fm-time-series` for the grid, flags, window totals and roll-ups. Drive periods from flags (`1`/`0` rows such as construction, operations, debt outstanding) computed from start dates and durations on `Timing`, and multiply by flags rather than writing `IF` on dates inside every formula.
+See [core/time-series.md](time-series.md) for the grid, flags, window totals and roll-ups. Drive periods from flags (`1`/`0` rows such as construction, operations, debt outstanding) computed from start dates and durations on `Timing`, and multiply by flags rather than writing `IF` on dates inside every formula.
 
 ## Returns
 
-See `fm-returns-metrics`. Report one IRR definition everywhere and label it. From monthly flows, the annual rate is `(1 + IRR)^12 − 1`, which is not `IRR × 12`.
+See [core/returns.md](returns.md). Report one IRR definition everywhere and label it. From monthly flows, the annual rate is `(1 + IRR)^12 − 1`, which is not `IRR × 12`.
 
 ## Checks
 
 A `Checks` sheet sums every check into one master flag shown on the `Cover`. Wrap each flag in `IFERROR(…, 1)` so an error value counts as a failure instead of breaking the master flag. Keep warnings (inputs worth a second look) separate from errors, which mean the model is wrong. At minimum: balance sheet balances, cash never negative unless allowed, sources = uses, and debt fully repaid by maturity.
 
-Balances (debt, draws, capital, accruals) follow `fm-corkscrew-balances`. To review someone else's model, use `fm-model-review`.
+Balances (debt, draws, capital, accruals) follow [core/balances.md](balances.md). To review someone else's model, use [core/model-review.md](model-review.md).
 
 ## Avoid
 

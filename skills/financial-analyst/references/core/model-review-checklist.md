@@ -44,7 +44,7 @@ Work through each group, and note cell addresses for anything found.
 - [ ] Equity (and the multiple) defined once, from the levered cash-flow row.
 - [ ] Partner cash flows sum to deal cash flow less third-party fees.
 - [ ] Annual roll-up = periodic total.
-- [ ] Only one IRR definition, and it's labelled (see `fm-returns-metrics`).
+- [ ] Only one IRR definition, and it's labelled (see [core/returns.md](returns.md)).
 
 ## Checks and labels
 

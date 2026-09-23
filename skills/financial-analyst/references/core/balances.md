@@ -1,8 +1,3 @@
----
-name: fm-corkscrew-balances
-description: Builds balance roll-forwards ("corkscrews") in Excel. It covers opening balance + additions − reductions = closing, for loans, construction draws against a commitment, reserves, partner capital accounts and accrued-but-unpaid returns, with interest on the opening balance, draw/repay timing conventions, and checks. Use when modeling a "debt schedule", "loan balance", "amortization", "draw schedule", "capital account", "accrued pref", "reserve account", or fixing a balance that goes negative or drops a payment. Pairs with fm-time-series.
----
-
 # Corkscrews
 
 Any quantity that carries from period to period is a corkscrew: opening balance, the flows in, the flows out, and a closing balance that becomes the next opening. Debt, construction draws, reserves, partner capital and unpaid pref all use the same four rows. Writing them the same way everywhere makes timing errors easy to see.

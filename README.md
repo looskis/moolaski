@@ -4,28 +4,45 @@
 
 # moolaski
 
-Financial modeling skills for AI agents: real estate, project finance, investment banking, and corporate finance models built in Excel.
+**A financial analyst for your AI agent.**
 
-Browse [CATALOG.md](CATALOG.md) to find the skill you need, then install just that one:
-
-```bash
-npx skills add looskis/moolaski --skill re-sfr-rental-model
-```
-
-List everything without installing:
+Install one skill and your agent works like a good analyst. It pins down the question, finds or asks for the inputs, builds a real Excel model, checks that it ties, and leads with the answer.
 
 ```bash
-npx skills add looskis/moolaski --list
+npx skills add looskis/moolaski
 ```
 
-Skills are grouped by domain and prefixed so the name says where it belongs:
+Works with Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and the other agents the [skills CLI](https://www.skills.sh/) supports.
 
-| Prefix | Domain |
+## Ask it what you'd ask an analyst
+
+> What's Costco worth? Is the stock cheap at today's price?
+
+> I can buy a rental for $320k. Rent is $2,400 a month and I'd put 25% down. Is it a deal?
+
+> Build a three-statement model from last year's numbers and tell me when we'll need the revolver.
+
+> Our sponsor sent this model. What's wrong with it?
+
+## What comes back
+
+**The answer first.** The number, the two or three inputs that move it most, the break-even where the conclusion flips, and the assumptions it made for you to confirm.
+
+**A workbook you can hand to anyone.** Inputs in blue and formulas in black, one formula per row across every period, and no numbers buried inside formulas. Change an input and everything downstream follows, so the next question is a recalculation, not a rebuild.
+
+**Proof that it ties.** A `Checks` sheet tests the model against itself: the balance sheet balances, sources equal uses, loans pay off, partner cash flows sum to the deal. Every check rolls up to one flag on the cover, and the analyst doesn't hand over a model whose checks fail.
+
+## What it covers today
+
+| Area | Models |
 |---|---|
-| `fm-` | Core conventions every model uses |
-| `re-` | Real estate |
-| `pf-` | Project finance |
-| `ib-` | Investment banking |
-| `cf-` | Corporate finance |
+| Valuation | DCF: WACC from CAPM, terminal value by growth and by exit multiple (each checked against the other), stub periods, the EV-to-equity bridge, implied IRR at the market price, live sensitivity grids |
+| Corporate finance | Three-statement forecasts: working capital on days, PP&E, a revolver that funds shortfalls, interest without circularity |
+| Real estate | Single-family rentals (buy and hold, BRRRR, cash-out refi, partner waterfalls) and fix-and-flips (rehab budget, hard money, max offer) |
+| Model review | Audits of a model someone else built: hardcodes, broken rows, hidden circularity, checks that can't fail, graded findings and a verdict |
 
-Contributing: see [CLAUDE.md](CLAUDE.md). License: [MIT](LICENSE).
+Coming next: LBOs, trading comps, project finance, multifamily acquisitions and ground-up development.
+
+## License
+
+[MIT](LICENSE). Contributing: see [CLAUDE.md](CLAUDE.md).

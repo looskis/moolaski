@@ -1,18 +1,13 @@
----
-name: ib-dcf
-description: Builds a discounted cash flow valuation in Excel on top of a forecast — unlevered free cash flow, WACC from CAPM, terminal value by perpetuity growth and by exit multiple with each cross-checked against the other, discounting from a stated valuation date with a stub period, the enterprise-to-equity bridge, value per share, the upside and implied IRR against the market price, and live sensitivity grids. Use when the user asks for a "DCF", "unlevered free cash flow", "FCFF", "WACC", "terminal value", "intrinsic value", "what's this company worth", "EV to equity bridge", or a football-field input. Not for building the underlying forecast (use cf-three-statement) and not for LBO returns.
----
-
 # Discounted cash flow
 
 Values a business as the cash it can hand to all its capital providers, discounted at their blended required return. The arithmetic is easy; almost every wrong DCF is wrong for one of three reasons: the cash flow doesn't match the discount rate, the terminal value is never sanity-checked, or the bridge from enterprise value to per-share value quietly drops something.
 
 ## Before you build
 
-- You need a forecast: EBIT, D&A, capex and the change in net working capital for each year (see `cf-three-statement`).
+- You need a forecast: EBIT, D&A, capex and the change in net working capital for each year (see [corporate-finance/three-statement.md](../corporate-finance/three-statement.md)).
 - Gather: risk-free rate, beta, equity risk premium, target capital structure, pre-tax cost of debt, tax rate, horizon, terminal growth and/or exit multiple, **the valuation date** (rarely a year end), and the current share price if there is one.
 - For the bridge: debt, cash, and diluted share count at the valuation date, plus any minority interest, associates, pensions or preferred stock.
-- Follow `fm-model-conventions`, `fm-time-series` and `fm-returns-metrics`.
+- Follow [core/conventions.md](../core/conventions.md), [core/time-series.md](../core/time-series.md) and [core/returns.md](../core/returns.md).
 
 ## Build steps
 
@@ -54,4 +49,4 @@ Values a business as the cash it can hand to all its capital providers, discount
 
 ## References
 
-- [references/mechanics.md](references/mechanics.md) — formulas for UFCF, WACC, discount factors, both terminal values and their implied counterparts, the bridge, and sensitivity cells
+- [dcf-mechanics.md](dcf-mechanics.md) — formulas for UFCF, WACC, discount factors, both terminal values and their implied counterparts, the bridge, and sensitivity cells

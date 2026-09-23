@@ -1,8 +1,3 @@
----
-name: cf-three-statement
-description: Builds a driver-based three-statement operating model in Excel — income statement, balance sheet and cash flow statement that tie every period — with working capital on days, a PP&E and depreciation schedule, debt corkscrews with a revolver that plugs cash shortfalls, and interest handled without circularity (or with it, deliberately). Use when the user asks for a "3-statement model", "operating model", "financial forecast", "budget model", "integrated model", "revolver", "debt schedule", "cash sweep", or a balance sheet that won't balance. Not for valuation on its own (use ib-dcf) or for property-level cash flow models.
----
-
 # Three-statement model
 
 Forecasts a company from operating drivers and produces three statements that agree with each other. It answers how much cash the business throws off, when it needs to borrow, and what its balance sheet looks like along the way. It is also the base a DCF, an LBO or a credit analysis sits on.
@@ -14,7 +9,7 @@ Two things make this harder than a single cash-flow model, and they're the whole
 - Gather: the last historical year's revenue and balance sheet (cash, receivables, inventory, PP&E, goodwill, payables, accruals, debt, share capital), and the forecast horizon.
 - Gather drivers, per year: revenue growth, COGS and SG&A as % of revenue, D&A, capex, DSO / DIO / DPO days, accruals, tax rate, dividend payout.
 - Gather debt terms: opening balances, rates, amortization, a revolver commitment, and the minimum cash balance.
-- Follow `fm-model-conventions` and `fm-time-series`. Balances use `fm-corkscrew-balances`.
+- Follow [core/conventions.md](../core/conventions.md) and [core/time-series.md](../core/time-series.md). Balances use [core/balances.md](../core/balances.md).
 
 ## Structure
 
@@ -29,7 +24,7 @@ If history is shown, back-solve each driver from the historical statements on th
 1. **Income statement**: revenue = prior × (1 + growth) in forecast years, the historical input in year 0. COGS and SG&A as % of revenue; EBITDA; D&A from the PP&E schedule; EBIT; interest from the Debt sheet; tax = rate × max(0, EBT); net income; dividends = payout × net income.
 2. **Working capital** on days: receivables from revenue, inventory and payables from COGS, accruals from SG&A. Net working capital and its change feed both the cash flow statement and any DCF. Compute year 0 from the same days, so the opening balance sheet is consistent with the drivers.
 3. **PP&E**: opening + capex − depreciation = closing, with year 0 set to the historical input.
-4. **Debt and cash** — the part to get right, see [references/circularity.md](references/circularity.md):
+4. **Debt and cash** — the part to get right, see [three-statement-circularity.md](three-statement-circularity.md):
    - Term loan corkscrew with scheduled amortization and an optional cash sweep.
    - Cash flow before the revolver = net income + D&A − ΔNWC − capex + debt movements − dividends.
    - Revolver draw = shortfall below the minimum cash balance; repayment sweeps cash above it.
@@ -64,4 +59,4 @@ If history is shown, back-solve each driver from the historical statements on th
 
 ## References
 
-- [references/circularity.md](references/circularity.md) — where circularity comes from, the three ways to handle it, and how to test that a model resolved rather than got stuck
+- [three-statement-circularity.md](three-statement-circularity.md) — where circularity comes from, the three ways to handle it, and how to test that a model resolved rather than got stuck

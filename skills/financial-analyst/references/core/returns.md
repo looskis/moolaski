@@ -1,8 +1,3 @@
----
-name: fm-returns-metrics
-description: Computes and labels investment return metrics in Excel from a model's cash flows. It covers IRR vs XIRR vs annualizing a periodic IRR, equity multiple (MOIC), equity required, profit, return on equity, margin on cost, profit on sale, cash-on-cash, yield on cost, and payback, each defined once from the same cash-flow row. Use when adding "returns", "IRR", "XIRR", "MOIC", "equity multiple", "cash on cash", "ROI", "profit margin", or "annualized return" to a model, or when two sheets report different returns. Pairs with fm-model-conventions.
----
-
 # Return metrics
 
 Most return errors aren't arithmetic. They come from two sheets defining "equity" or "IRR" differently, or from a label that doesn't match the math. So define every metric once, from one levered cash-flow row (and one unlevered row), and name each one for exactly what it computes.

@@ -1,8 +1,3 @@
----
-name: fm-model-review
-description: Audits an existing Excel financial model built by someone else. It maps structure and flow of calculation, finds hardcodes, broken or inconsistent formulas, unit mismatches, circularity, dead links and macros, grades each finding error/risk/style, and gives a verdict. Use when the user asks to "review", "audit", "check", "QA", "sanity-check", or "find errors in" a model or spreadsheet, or inherits a pro forma, LBO, DCF, or project finance model. Not for building a new model (use fm-model-conventions and the domain skill).
----
-
 # Reviewing an inherited model
 
 The goal is a list of findings that someone can act on, each saying where, what goes wrong, and the fix, plus a verdict on whether the model is worth using. Read the whole model before judging any single cell: most errors show up as two parts of the model that disagree, not as one wrong formula.
@@ -16,7 +11,7 @@ The goal is a list of findings that someone can act on, each saying where, what 
 
 1. **Map it.** For each sheet, record its role and key outputs. Trace the flow of calculation: inputs → timing → operations → financing → returns → partners. Note every place a number enters the model.
 2. **Record the base case.** Write down the headline outputs as they stand, so a rebuild or fix can be tied out against them.
-3. **Scan formulas mechanically.** See [references/checklist.md](references/checklist.md) for the full list. The core scans:
+3. **Scan formulas mechanically.** See [model-review-checklist.md](model-review-checklist.md) for the full list. The core scans:
    - Row consistency: compare each time-series row's formulas in R1C1 form. A correct row reads identically in every period, so any change of pattern is a finding (often the first period).
    - Numbers typed into formulas, other than 0, 1, 12 and genuine unit constants like 52 or 365.
    - Inputs that are really outputs: fractional "inputs" that came from goal seek or copy-paste.

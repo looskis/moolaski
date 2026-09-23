@@ -1,6 +1,6 @@
 # Fix-and-flip: row formulas
 
-Notation: `w` = period index (0 = closing), `P` = periods per year (52 weekly, 12 monthly), `[flag]` = a 1/0 row on `Timing`, `prev` = the prior column of the same row. Costs are negative. Put a blank spacer column before period 0 (see `fm-model-conventions`).
+Notation: `w` = period index (0 = closing), `P` = periods per year (52 weekly, 12 monthly), `[flag]` = a 1/0 row on `Timing`, `prev` = the prior column of the same row. Costs are negative. Put a blank spacer column before period 0 (see [core/conventions.md](../core/conventions.md)).
 
 ## Timing
 

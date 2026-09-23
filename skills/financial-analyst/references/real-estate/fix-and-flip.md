@@ -1,8 +1,3 @@
----
-name: re-fix-and-flip-model
-description: Builds a fix-and-flip (buy, renovate, resell) pro forma for one house in Excel, on a weekly or monthly timeline. It covers a line-item rehab budget with timing, carry costs, a purchase loan, a hard-money/construction loan drawn with the work, the sale, profit, ROE, IRR, a maximum-offer check, and an optional sponsor/investor split. Use when the user asks for a "flip model", "fix and flip", "rehab budget", "house flip pro forma", "hard money loan model", "ARV", "70% rule", or "max allowable offer". Not for buy-and-hold rentals or a BRRRR refinance (use re-sfr-rental-model), and not for ground-up development.
----
-
 # Fix-and-flip pro forma
 
 Answers whether a flip is worth doing at this price. It shows how much cash it takes, when that cash is needed, what's left after financing and selling costs, and how sensitive the profit is to the renovation and hold running long. Use weekly periods for holds under about a year, where carry and draw timing matter; monthly is fine for longer projects.
@@ -13,7 +8,7 @@ Answers whether a flip is worth doing at this price. It shows how much cash it t
 - Also gather: construction start and duration, the marketing period after construction, and carry costs (tax and insurance as a %/year of price, utilities per month).
 - Also gather: the ARV (sale price) and selling cost %. The purchase loan: % of price, fee, rate, amortization or IO. The construction/hard-money loan: commitment, fee, rate, and the share of each draw it funds.
 - If there are partners: equity shares, an optional investor pref, and the profit split. Also a target return and the max-offer rule %.
-- Follow `fm-model-conventions`. Derive every date from one chain: construction end = start + duration − 1, and sale = construction end + marketing.
+- Follow [core/conventions.md](../core/conventions.md). Derive every date from one chain: construction end = start + duration − 1, and sale = construction end + marketing.
 
 ## Structure
 
@@ -22,7 +17,7 @@ Answers whether a flip is worth doing at this price. It shows how much cash it t
 ## Build steps
 
 1. **Timing flags**: acquisition, hold (1…sale), construction (start…end), construction start, sale.
-2. **Budget rows**: purchase and closing at period 0. One row per rehab line, spread by its method over its window; a line with no window of its own follows the construction window. Carry = annual % × price ÷ periods per year × hold. See [references/formulas.md](references/formulas.md).
+2. **Budget rows**: purchase and closing at period 0. One row per rehab line, spread by its method over its window; a line with no window of its own follows the construction window. Carry = annual % × price ÷ periods per year × hold. See [fix-and-flip-formulas.md](fix-and-flip-formulas.md).
 3. **Purchase loan**: a corkscrew in the model's own period, not monthly payments converted to weeks. Interest is on the opening balance; the loan is repaid from its closing balance at sale.
 4. **Construction loan**: draw = `MIN(undrawn commitment, draw % × this period's rehab spend)`. Interest is on the opening balance; the fee is charged at the first draw; the loan is repaid at sale.
 5. **Sale**: ARV less selling costs at the sale period.
@@ -49,4 +44,4 @@ Answers whether a flip is worth doing at this price. It shows how much cash it t
 
 ## References
 
-- [references/formulas.md](references/formulas.md) — budget spread, carry, both loan corkscrews, equity and distributions, partner split, returns, price checks
+- [fix-and-flip-formulas.md](fix-and-flip-formulas.md) — budget spread, carry, both loan corkscrews, equity and distributions, partner split, returns, price checks

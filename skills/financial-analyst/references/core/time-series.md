@@ -1,8 +1,3 @@
----
-name: fm-time-series
-description: Builds the period grid of a financial model in Excel. It covers columns for weekly, monthly, quarterly or annual periods, 1/0 timing flags from start dates and durations, a spacer column so period-1 formulas match the rest, totals over the model window, lookups by period, and roll-ups from one periodicity to another with SUMIFS. Use when setting up a model's timeline, "timing flags", "period columns", "monthly to annual roll-up", "construction period / operations period", or fixing a model whose formulas change across columns. Pairs with fm-model-conventions.
----
-
 # Period grids and timing flags
 
 Every time-based model is a grid: one row per line item, one column per period, and one formula per row across every period. The timing block decides which periods each row is "on". Get this right and everything downstream is a multiplication by a flag.
