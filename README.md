@@ -5,13 +5,13 @@ Financial modeling skills for AI agents: real estate, project finance, investmen
 Browse [CATALOG.md](CATALOG.md) to find the skill you need, then install just that one:
 
 ```bash
-npx skills add <owner>/moolaski --skill re-development-model
+npx skills add looskis/moolaski --skill re-sfr-rental-model
 ```
 
 List everything without installing:
 
 ```bash
-npx skills add <owner>/moolaski --list
+npx skills add looskis/moolaski --list
 ```
 
 Skills are grouped by domain and prefixed so the name says where it belongs:
@@ -24,4 +24,4 @@ Skills are grouped by domain and prefixed so the name says where it belongs:
 | `ib-` | Investment banking |
 | `cf-` | Corporate finance |
 
-Contributing: see [CLAUDE.md](CLAUDE.md).
+Contributing: see [CLAUDE.md](CLAUDE.md). License: [MIT](LICENSE).

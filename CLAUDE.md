@@ -27,4 +27,4 @@ scripts/check_skills.py validates skills and regenerates CATALOG.md
 
 ## Publishing
 
-skills.sh installs straight from GitHub: `npx skills add <owner>/moolaski --list` shows every skill and `--skill <name>` installs one.
+skills.sh installs straight from GitHub: `npx skills add looskis/moolaski --list` shows every skill and `--skill <name>` installs one.
