@@ -13,8 +13,10 @@ skills/financial-analyst/
     project-finance/
     investment-banking/
     corporate-finance/
+  scripts/check_workbook.py recalculates a workbook and reports what the analyst checks
 templates/model-guide.template.md
 scripts/check_skill.py      validates the skill (CI runs it)
+scripts/test_check_workbook.py  regression test for the skill's workbook checker (CI runs it)
 ```
 
 ## Rules

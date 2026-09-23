@@ -14,7 +14,7 @@ Every time-based model is a grid: one row per line item, one column per period, 
 
 1. **Index**: `IF(ISNUMBER(prior), prior + 1, 0)`. **Date**: `EOMONTH(start, index)` (monthly), `start + 7 × index` (weekly), or `EDATE` for quarters. **Year**: `ROUNDUP(index / periods per year, 0)`.
 2. **Derive every event from one chain of inputs.** For example, construction end = start + duration − 1, and sale = construction end + marketing. Never enter two dates for the same event.
-3. **Flags**, one row each: `--(index = event)` for points and `--AND(index >= start, index <= end)` for windows. Build compound flags by multiplying other flags: occupied × hold, or on × (index = month). For recurring events: `window × (MOD(index − start, interval) = 0)`.
+3. **Flags**, one row each: `1*(index = event)` for points and `1*AND(index >= start, index <= end)` for windows. Write `1*(…)`, not `--(…)`: both give 1 or 0 in Excel, but Python recalculation engines keep `--(…)` as TRUE/FALSE, and a sum over TRUE/FALSE is 0. Build compound flags by multiplying other flags: occupied × hold, or on × (index = month). For recurring events: `window × (MOD(index − start, interval) = 0)`.
 4. **Use the flags**: `amount × growth^(year − 1) × [flag]`. Never test dates inside every formula.
 
 ## Totals, lookups, roll-ups

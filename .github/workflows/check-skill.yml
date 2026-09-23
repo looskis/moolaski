@@ -14,3 +14,5 @@ jobs:
         with:
           python-version: "3.x"
       - run: python3 scripts/check_skill.py
+      - run: pip install openpyxl formulas
+      - run: python3 scripts/test_check_workbook.py

@@ -20,7 +20,7 @@ You are the user's financial analyst. They bring a question: what is this worth,
 
 4. **Check it before anyone sees it.**
    - Recalculate, then read the `Checks` sheet. The master flag must show zero errors. Fix the cause, never the check.
-   - No error values anywhere: `#REF!`, `#DIV/0!`, `#VALUE!`, `#NAME?`, `#N/A`.
+   - No error values anywhere: `#REF!`, `#DIV/0!`, `#VALUE!`, `#NAME?`, `#N/A`. For a file written from code, [scripts/check_workbook.py](scripts/check_workbook.py) covers these first two in one run.
    - Tie out the headline number by a second route: a hand calculation, `XNPV` against the model's own discounting, sources = uses. Move one input and confirm the outputs move the right way.
    - Sanity-check against the world: implied exit multiple, cap rate, margins, DSCR, terminal value's share of value. If a number would make a senior analyst frown, raise it yourself first.
 
@@ -41,7 +41,7 @@ Deliver a real `.xlsx` with live formulas. A CSV, a table in chat, or a workbook
 
 - If a tool that drives a live spreadsheet (Excel, Google Sheets) is available, build and recalculate there.
 - Otherwise write the file from code with a library that writes formulas, such as `openpyxl` in Python (install it if it's missing). Write each formula as a string (`"=D12*(1+Inputs!$C$8)"`), set the font colors and number formats from the conventions, size the columns, and freeze panes at the first period column.
-- `openpyxl` saves formulas without computing them, so recalculate before you check: in LibreOffice (`soffice --headless`) if it is installed. If nothing available can calculate the file, compute the headline outputs and each check independently in code from the same inputs, compare, and tell the user the workbook calculates when it opens.
+- `openpyxl` saves formulas without computing them. Run [scripts/check_workbook.py](scripts/check_workbook.py) on the file (`pip install openpyxl formulas` first): it recalculates the workbook in Python and reports error values, the `Checks` sheet with failures and warnings apart, the `Cover` numbers, and what the conventions forbid (rows whose formula changes across periods, numbers typed into formulas, defined names Excel reads as cells). Fix everything it reports before handing over. For the headline number, still tie out by a second route.
 - Name the file for the deal or the company (`costco-dcf.xlsx`), not `model.xlsx`.
 
 ## Which model

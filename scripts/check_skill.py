@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SKILL = ROOT / "skills" / "financial-analyst"
 NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
-LINK_RE = re.compile(r"\]\(([^)#\s]+\.md)(?:#[^)]*)?\)")
+LINK_RE = re.compile(r"\]\(([^)#\s]+)(?:#[^)]*)?\)")
 MAX_DESCRIPTION = 1024
 MAX_LINES = 500
 
@@ -34,7 +34,7 @@ def frontmatter(text):
 
 
 def links(path):
-    return [(path.parent / t).resolve() for t in LINK_RE.findall(path.read_text()) if "://" not in t]
+    return [(path.parent / t).resolve() for t in LINK_RE.findall(path.read_text()) if ":" not in t]
 
 
 def main():

@@ -5,7 +5,7 @@ Work through each group, and note cell addresses for anything found.
 ## Workbook
 
 - [ ] External links: where do they point, and is anything still using them? Dead links and names that refer to them should be deleted.
-- [ ] Defined names: `#REF!` names, names pointing at other workbooks, and names that nothing uses.
+- [ ] Defined names: `#REF!` names, names pointing at other workbooks, names that nothing uses, and names Excel reads as cell addresses (`NOI2`, `FY25`).
 - [ ] Macros: what each one does, whether any runs on open, and whether any writes values into input cells (goal seek, copy-paste loops).
 - [ ] Hidden sheets, rows or columns holding logic; merged cells in calculation areas.
 - [ ] Sheets that are broken (`#REF!` columns), mislabelled, or unused.

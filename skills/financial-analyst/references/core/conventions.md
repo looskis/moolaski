@@ -17,6 +17,7 @@ Every model follows the same conventions, so any model can be read, checked, and
 - Derive each event from one chain of inputs, so two inputs can never describe the same date.
 - A switch accepts only the values it implements, and a check flags anything else.
 - Defined names are case-insensitive: `Rev_0` and `REV_0` are one name, and the later definition silently wins.
+- A defined name must not look like a cell address. `NOI2`, `CoC1`, `FY25` and `Q1` are cells, so `=NOI2` silently reads an empty cell; use `NOI_Y2`.
 - Solved values (goal seek, targets) are never pasted over inputs.
 
 ## Formatting
@@ -43,7 +44,7 @@ See [core/returns.md](returns.md). Report one IRR definition everywhere and labe
 
 ## Checks
 
-A `Checks` sheet sums every check into one master flag shown on the `Cover`. Wrap each flag in `IFERROR(…, 1)` so an error value counts as a failure instead of breaking the master flag. Keep warnings (inputs worth a second look) separate from errors, which mean the model is wrong. At minimum: balance sheet balances, cash never negative unless allowed, sources = uses, and debt fully repaid by maturity.
+A `Checks` sheet sums every check into one master flag shown on the `Cover`. Wrap each flag in `IFERROR(…, 1)` so an error value counts as a failure instead of breaking the master flag. Keep warnings (inputs worth a second look) separate from errors, which mean the model is wrong: list the errors first, then the warnings under a heading row labelled `Warnings`, each flag in the first value column (1 = raised). At minimum: balance sheet balances, cash never negative unless allowed, sources = uses, and debt fully repaid by maturity.
 
 Balances (debt, draws, capital, accruals) follow [core/balances.md](balances.md). To review someone else's model, use [core/model-review.md](model-review.md).
 
