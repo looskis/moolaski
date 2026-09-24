@@ -52,11 +52,9 @@ Then come the inputs that move it, the break-evens, and the assumptions it made 
 | Investment banking | LBOs: sources and uses, tranche-by-tranche cash sweep, revolver, PIK, credit stats, sponsor IRR and returns attribution. Merger models: cash/stock mix, purchase price allocation, synergies, EPS accretion/dilution and the breakeven price |
 | Corporate finance | Three-statement forecasts: working capital on days, PP&E, a revolver that funds shortfalls, interest without circularity. Capital budgeting: incremental cash flows, tax on sale, NPV/IRR/MIRR, payback, replacement decisions, crossover rates. 13-week cash flows: direct-method receipts and disbursements, borrowing base, rolling variance, liquidity levers. Operating budgets: SaaS customer and ARR bridge, headcount at gross cost, budget vs actual with volume and price variances, latest estimate, runway. Startup cap tables: SAFEs and notes, the option pool shuffle solved exactly, liquidation preferences and who gets what at exit |
 | Project finance | Solar, wind and infrastructure: construction funding, CFADS, debt sized and sculpted to a target DSCR, DSRA and maintenance reserves, lock-ups, LLCR/PLCR, project and equity IRR |
-| Real estate | Ground-up development (construction loan with interest reserve, lease-up, yield on cost, sale or refi), GP/LP equity waterfalls with IRR hurdles and catch-up, single-family rentals (buy and hold, BRRRR, cash-out refi) and fix-and-flips |
+| Real estate | Acquisitions with a rent roll (office, industrial, retail lease by lease; multifamily by unit mix): rollover, TIs and leasing commissions, recoveries, WALT, debt sized by LTV, DSCR and debt yield, max price at a target IRR. Ground-up development (construction loan with interest reserve, lease-up, yield on cost, sale or refi), GP/LP equity waterfalls with IRR hurdles and catch-up, single-family rentals (buy and hold, BRRRR, cash-out refi) and fix-and-flips |
 | Scenarios | Base/upside/downside switches, live sensitivity grids, tornados and breakevens solved by formula, on any model |
 | Model review | Audits of a model someone else built: hardcodes, broken rows, hidden circularity, checks that can't fail, graded findings and a verdict |
-
-Coming next: multifamily and commercial acquisitions with a rent roll.
 
 ## License
 

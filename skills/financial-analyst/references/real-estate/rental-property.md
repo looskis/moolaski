@@ -2,6 +2,8 @@
 
 Answers whether one rental house is worth buying. It shows how much equity it takes, the cash-on-cash while it is held, what a cash-out refinance returns, and the unlevered and levered IRR and multiple at sale. With partners, it also shows how the returns split. Monthly periods matter for SFR: renovation and lease-up are a month or two, fees fire at each lease signing, and a refi lands in a specific month.
 
+For a multi-tenant building or an apartment acquisition with a rent roll, see [acquisition](acquisition.md).
+
 ## Before you build
 
 - Gather: price, transfer tax %, closing costs, due diligence, a make-ready budget by item, and renovation months (rent starts the month after). Also gather: rent, move-in fee, days vacant per year, fixed costs (tax, insurance, HOA per month), variable opex, management % of EGR, leasing fee % of a month's rent, growth rates, and replacement components (cost, useful life, remaining life).

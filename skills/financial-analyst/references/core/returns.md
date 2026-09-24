@@ -37,7 +37,7 @@ Most return errors aren't arithmetic. They come from two sheets defining "equity
 
 - Profit on the summary = `SUM(levered CF)`; multiple × equity − equity = profit.
 - Σ partner CF = deal levered CF less fees.
-- IRR is not an error value (for example, a sign change exists), and trailing zero periods are fine.
+- IRR is not an error value (for example, a sign change exists), and trailing zero periods are fine. Discount the flows at the IRR and confirm the result is about zero: `XIRR` can return a false root near zero and still look like a number.
 
 ## Common mistakes
 
