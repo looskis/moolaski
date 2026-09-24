@@ -31,7 +31,7 @@ Most return errors aren't arithmetic. They come from two sheets defining "equity
 - **One IRR definition per model**, stated on the cover. If the grid is monthly, report `(1 + IRR)^12 − 1` or XIRR, not both on different sheets.
 - **Partner metrics come from partner cash-flow rows** that sum to the deal's levered CF (less third-party fees). Check it.
 - **Sensitivities**: show IRR and multiple together. A short hold can give a huge IRR on a small profit.
-- **Targets**: to solve for a price or rent that hits a target return, use Goal Seek or a data table. Keep the input as an input; don't paste the solved value in as if it were an assumption.
+- **Targets**: to find the price or rent that hits a target return, solve by formula — a closed form, the IRR itself, or a bisection laid out in rows ([scenarios](scenarios.md)). Goal Seek is for exploring only. Keep the input as an input; never paste a solved value in as if it were an assumption.
 
 ## Checks
 

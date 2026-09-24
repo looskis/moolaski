@@ -53,9 +53,10 @@ Then come the inputs that move it, the break-evens, and the assumptions it made 
 | Corporate finance | Three-statement forecasts: working capital on days, PP&E, a revolver that funds shortfalls, interest without circularity |
 | Project finance | Solar, wind and infrastructure: construction funding, CFADS, debt sized and sculpted to a target DSCR, DSRA and maintenance reserves, lock-ups, LLCR/PLCR, project and equity IRR |
 | Real estate | Ground-up development (construction loan with interest reserve, lease-up, yield on cost, sale or refi), GP/LP equity waterfalls with IRR hurdles and catch-up, single-family rentals (buy and hold, BRRRR, cash-out refi) and fix-and-flips |
+| Scenarios | Base/upside/downside switches, live sensitivity grids, tornados and breakevens solved by formula, on any model |
 | Model review | Audits of a model someone else built: hardcodes, broken rows, hidden circularity, checks that can't fail, graded findings and a verdict |
 
-Coming next: multifamily and commercial acquisitions with a rent roll, scenario analysis, capital budgeting, 13-week cash flow, budgets and cap tables.
+Coming next: multifamily and commercial acquisitions with a rent roll, capital budgeting, 13-week cash flow, budgets and cap tables.
 
 ## License
 

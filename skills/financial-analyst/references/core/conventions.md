@@ -18,7 +18,7 @@ Every model follows the same conventions, so any model can be read, checked, and
 - A switch accepts only the values it implements, and a check flags anything else.
 - Defined names are case-insensitive: `Rev_0` and `REV_0` are one name, and the later definition silently wins.
 - A defined name must not look like a cell address. `NOI2`, `CoC1`, `FY25` and `Q1` are cells, so `=NOI2` silently reads an empty cell; use `NOI_Y2`.
-- Solved values (goal seek, targets) are never pasted over inputs.
+- Solved values (goal seek, targets) are never pasted over inputs; solve breakevens by formula instead ([scenarios](scenarios.md)).
 
 ## Formatting
 
