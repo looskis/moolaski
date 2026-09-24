@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/moolaski-icon.png" alt="moolaski logo" width="128" height="128">
+</p>
+
 # moolaski
 
 Financial modeling skills for AI agents: real estate, project finance, investment banking, and corporate finance models built in Excel.
