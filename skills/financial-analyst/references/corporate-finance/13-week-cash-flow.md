@@ -4,6 +4,8 @@ Forecasts cash week by week by the direct method: what customers will pay, what 
 
 Three things make it hard, and they are the point: **receipts come from the receivables aging, not from sales**; **the revolver lends against a borrowing base that moves with those receivables**; and **the forecast has to roll** every week against actuals, without breaking.
 
+
+The monthly plan it rolls against is the [operating-budget](operating-budget.md).
 ## Before you build
 
 - Gather opening balances at a week end: bank cash, the revolver and LCs, term debt, inventory, the **AR aging by bucket** (with the customers who are slow or at risk), and **AP by due date**.
