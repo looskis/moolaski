@@ -4,6 +4,8 @@ Forecasts a company from operating drivers and produces three statements that ag
 
 Two things make this harder than a single cash-flow model, and they're the whole point: **the balance sheet has to balance every period**, and **interest depends on debt balances that depend on the cash flow that interest affects**.
 
+
+For week-by-week liquidity against a revolver and a covenant, see [13-week-cash-flow](13-week-cash-flow.md).
 ## Before you build
 
 - Gather: the last historical year's revenue and balance sheet (cash, receivables, inventory, PP&E, goodwill, payables, accruals, debt, share capital), and the forecast horizon.
