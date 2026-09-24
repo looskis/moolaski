@@ -1,5 +1,7 @@
 # Sponsor / investor waterfall (monthly, pref → capital → promote)
 
+For IRR hurdles, a GP catch-up, several promote tiers, or American vs European, see [equity-waterfall](equity-waterfall.md).
+
 For a small deal with a sponsor (GP) and a few investors, all contributing pro rata. Each partner row below is repeated per partner, with a total row under each block.
 
 ## Deal-level rows

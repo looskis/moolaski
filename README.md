@@ -48,12 +48,14 @@ Then come the inputs that move it, the break-evens, and the assumptions it made 
 
 | Area | Models |
 |---|---|
-| Valuation | DCF: WACC from CAPM, terminal value by growth and by exit multiple (each checked against the other), stub periods, the EV-to-equity bridge, implied IRR at the market price, live sensitivity grids |
+| Valuation | DCF: WACC from CAPM, terminal value by growth and by exit multiple (each checked against the other), stub periods, the EV-to-equity bridge, implied IRR at the market price, live sensitivity grids. Trading and precedent-transaction comps: calendarized multiples, outlier switches, implied ranges, football field |
+| Investment banking | LBOs: sources and uses, tranche-by-tranche cash sweep, revolver, PIK, credit stats, sponsor IRR and returns attribution. Merger models: cash/stock mix, purchase price allocation, synergies, EPS accretion/dilution and the breakeven price |
 | Corporate finance | Three-statement forecasts: working capital on days, PP&E, a revolver that funds shortfalls, interest without circularity |
-| Real estate | Single-family rentals (buy and hold, BRRRR, cash-out refi, partner waterfalls) and fix-and-flips (rehab budget, hard money, max offer) |
+| Project finance | Solar, wind and infrastructure: construction funding, CFADS, debt sized and sculpted to a target DSCR, DSRA and maintenance reserves, lock-ups, LLCR/PLCR, project and equity IRR |
+| Real estate | Ground-up development (construction loan with interest reserve, lease-up, yield on cost, sale or refi), GP/LP equity waterfalls with IRR hurdles and catch-up, single-family rentals (buy and hold, BRRRR, cash-out refi) and fix-and-flips |
 | Model review | Audits of a model someone else built: hardcodes, broken rows, hidden circularity, checks that can't fail, graded findings and a verdict |
 
-Coming next: LBOs, trading comps, project finance, multifamily acquisitions and ground-up development.
+Coming next: multifamily and commercial acquisitions with a rent roll, scenario analysis, capital budgeting, 13-week cash flow, budgets and cap tables.
 
 ## License
 
