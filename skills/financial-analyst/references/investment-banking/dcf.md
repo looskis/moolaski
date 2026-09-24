@@ -2,6 +2,8 @@
 
 Values a business as the cash it can hand to all its capital providers, discounted at their blended required return. The arithmetic is easy; almost every wrong DCF is wrong for one of three reasons: the cash flow doesn't match the discount rate, the terminal value is never sanity-checked, or the bridge from enterprise value to per-share value quietly drops something.
 
+
+For a single investment decision inside a company (no terminal value, no equity bridge), see [capital-budgeting](../corporate-finance/capital-budgeting.md).
 ## Before you build
 
 - You need a forecast: EBIT, D&A, capex and the change in net working capital for each year (see [corporate-finance/three-statement.md](../corporate-finance/three-statement.md)).
