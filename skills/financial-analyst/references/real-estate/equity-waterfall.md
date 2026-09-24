@@ -2,6 +2,8 @@
 
 Splits a deal's levered cash between the capital partner (LP) and the sponsor (GP): a preferred return, return of capital, an optional GP catch-up, then promote tiers at IRR or multiple hurdles. It works on any levered cash-flow row: a development, an acquisition, a portfolio, in monthly, quarterly or annual periods. For a small rental deal with a flat pref and one promote split, [rental-property-waterfall](rental-property-waterfall.md) is enough. This guide adds the tiers above it. Two things decide whether a waterfall can be trusted. First, **hurdles are IRRs, so track each one as a capital account compounding at its hurdle rate**, and never find them by goal seek or a circular IRR-to-date. Second, **every period's cash is conserved**: the tiers sum to the cash distributed, and the partners' flows sum to the deal's.
 
+For preferred stock's liquidation preferences and conversion at a company exit, see [cap-table](../corporate-finance/cap-table.md).
+
 ## Before you build
 
 - One levered cash-flow row and its dates ([core/returns.md](../core/returns.md)). Contributions = `MAX(0, −levered CF)`, distributions = `MAX(0, levered CF)`.
