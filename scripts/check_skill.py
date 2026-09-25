@@ -4,6 +4,7 @@
 Checks:
   - exactly one SKILL.md in the repo (the skills CLI lets a shallower one shadow the rest)
   - frontmatter with a lowercase-hyphenated name matching its folder, and a description
+  - frontmatter values a strict YAML parser accepts (the skills CLI skips the skill otherwise)
   - every guide under references/ is linked from SKILL.md, so the agent can find it
   - every relative link in the skill resolves
 
@@ -24,13 +25,17 @@ MAX_LINES = 500
 def frontmatter(text):
     m = re.match(r"^---\n(.*?)\n---\n", text, re.S)
     if not m:
-        return None
-    fields = {}
+        return None, []
+    fields, problems = {}, []
     for line in m.group(1).splitlines():
         key, sep, value = line.partition(":")
         if sep and not line.startswith((" ", "\t")):
-            fields[key.strip()] = value.strip().strip("\"'")
-    return fields
+            raw = value.strip()
+            fields[key.strip()] = raw.strip("\"'")
+            if raw and raw[0] not in "\"'" and (": " in raw or " #" in raw or raw.endswith(":") or raw[0] in "[]{}>|*&!%@`,?#-"):
+                problems.append(f"SKILL.md: {key.strip()} is plain YAML containing ': ', ' #' or a leading symbol, "
+                                "which the skills CLI rejects; reword it or quote it")
+    return fields, problems
 
 
 def links(path):
@@ -48,7 +53,8 @@ def main():
         errors.append(f"{skill_md.relative_to(ROOT)} is missing")
     else:
         text = skill_md.read_text()
-        fm = frontmatter(text)
+        fm, problems = frontmatter(text)
+        errors += problems
         if fm is None:
             errors.append("SKILL.md: missing frontmatter")
         else:
