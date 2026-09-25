@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regression test for skills/financial-analyst/scripts/check_workbook.py.
+"""Regression test for skills/moolaski-financial-analyst/scripts/check_workbook.py.
 
 Builds one clean workbook and one with every problem the script must catch,
 then checks the verdicts. Needs openpyxl and formulas.
@@ -14,7 +14,7 @@ from pathlib import Path
 from openpyxl import Workbook
 from openpyxl.workbook.defined_name import DefinedName
 
-SCRIPT = Path(__file__).resolve().parent.parent / "skills/financial-analyst/scripts/check_workbook.py"
+SCRIPT = Path(__file__).resolve().parent.parent / "skills/moolaski-financial-analyst/scripts/check_workbook.py"
 
 
 def build(path, broken):

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the financial-analyst skill.
+"""Validate the moolaski-financial-analyst skill.
 
 Checks:
   - exactly one SKILL.md in the repo (the skills CLI lets a shallower one shadow the rest)
@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SKILL = ROOT / "skills" / "financial-analyst"
+SKILL = ROOT / "skills" / "moolaski-financial-analyst"
 NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 LINK_RE = re.compile(r"\]\(([^)#\s]+)(?:#[^)]*)?\)")
 MAX_DESCRIPTION = 1024

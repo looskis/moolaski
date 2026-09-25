@@ -1,11 +1,11 @@
 # moolaski
 
-One skill, `financial-analyst`, published on [skills.sh](https://www.skills.sh/). The promise: install it and you have an analyst at your disposal. Every change is judged against that.
+One skill, `moolaski-financial-analyst`, published on [skills.sh](https://www.skills.sh/). The promise: install it and you have an analyst at your disposal. Every change is judged against that.
 
 ## Layout
 
 ```
-skills/financial-analyst/
+skills/moolaski-financial-analyst/
   SKILL.md                  how the analyst works, and which guide to read for which request
   references/
     core/                   conventions every model shares: layout, timing, balances, returns, review
@@ -32,3 +32,11 @@ scripts/test_check_workbook.py  regression test for the skill's workbook checker
 ## Publishing
 
 skills.sh installs straight from GitHub: `npx skills add looskis/moolaski` installs the skill. A skill appears on skills.sh once someone installs it.
+
+## Being found
+
+Agents find skills with `npx skills find <query>`, which asks skills.sh's search. What that search sees:
+
+- **The name and the description are indexed; the SKILL.md body is not.** A word a user might search for has to be in one of those two. The repo name (`moolaski`) is matched too.
+- **Results rank by installs.** `npx skills find` keeps the top 20 matches and sorts them by install count, and the skills.sh leaderboard is installs only.
+- **The name must be unique.** It is the install folder (`.claude/skills/<name>/`), so two skills with one name overwrite each other, and in search a shared name sorts below the one with more installs. Several skills are already called `financial-analyst`; ours is `moolaski-financial-analyst`. Don't rename it again: skills.sh keys entries as `owner/repo/name`, so a renamed skill is a new entry that starts from zero installs.

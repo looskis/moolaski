@@ -4,6 +4,8 @@
 
 # moolaski
 
+[![skills.sh](https://www.skills.sh/b/looskis/moolaski)](https://www.skills.sh/looskis/moolaski)
+
 **A financial analyst for your AI agent.**
 
 Install one skill and your agent works like a good analyst. It pins down the question, finds or asks for the inputs, builds a real Excel model, checks that it ties, and leads with the answer.
@@ -12,7 +14,7 @@ Install one skill and your agent works like a good analyst. It pins down the que
 npx skills add looskis/moolaski
 ```
 
-Works with Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and the other agents the [skills CLI](https://www.skills.sh/) supports.
+That installs `moolaski-financial-analyst`. Works with Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and the other agents the [skills CLI](https://www.skills.sh/) supports.
 
 ## Ask it what you'd ask an analyst
 
