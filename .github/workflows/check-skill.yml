@@ -1,0 +1,31 @@
+name: check-skill
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - run: python3 scripts/check_skill.py
+      - run: pip install openpyxl formulas
+      - run: python3 scripts/test_check_workbook.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      # What users run: the skills CLI must find exactly this skill, with nothing skipped.
+      - name: skills CLI finds the skill
+        env:
+          DISABLE_TELEMETRY: "1"
+        run: |
+          out=$(npx -y skills add . --list 2>&1 | sed 's/\x1b\[[0-9;?]*[a-zA-Z]//g')
+          echo "$out"
+          if echo "$out" | grep -q "Skipped"; then echo "::error::the skills CLI skipped a SKILL.md"; exit 1; fi
+          if ! echo "$out" | grep -q "Found 1 skill"; then echo "::error::expected exactly one skill"; exit 1; fi
+          if ! echo "$out" | grep -q "moolaski-financial-analyst"; then echo "::error::moolaski-financial-analyst not found"; exit 1; fi
